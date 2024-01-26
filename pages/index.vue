@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { data } = await useFetch('http://localhost:8000/api/fabricator')
+const config = useRuntimeConfig()
+const { data } = await useFetch(config.public.baseURL + '/fabricator')
 </script>
 
 <template>

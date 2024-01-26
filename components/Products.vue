@@ -16,12 +16,13 @@ let getPath = () => {
 const page = ref(1);
 const pending = ref(false)
 const products = ref([])
+const config = useRuntimeConfig()
 const loadProducts = () => {
   pending.value = true
 
-  $fetch( `/api/product?perPage=30${getPath()}`, {
+  $fetch( `/product?perPage=30${getPath()}`, {
     method: 'GET',
-    baseURL: `http://localhost:8000`,
+    baseURL: config.public.baseURL,
     params: {
       pageNumber: page.value,
     }

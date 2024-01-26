@@ -2,7 +2,8 @@
 const route = useRoute()
 let vendorAlias = route.params.vendor_alias
 let modelAlias = route.params.model_alias
-const { data } = await useFetch(`http://localhost:8000/api/product-page?fabricator=${vendorAlias}&model=${modelAlias}`)
+const config = useRuntimeConfig()
+const { data } = await useFetch(config.public.baseURL +  `/product-page?fabricator=${vendorAlias}&model=${modelAlias}`)
 </script>
 
 <template>

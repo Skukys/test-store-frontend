@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const route = useRoute()
 let alias = route.params.vendor_alias
-const { data } = await useFetch('http://localhost:8000/api/model?fabricator='+alias)
+const config = useRuntimeConfig()
+const { data } = await useFetch(config.public.baseURL + '/model?fabricator='+alias)
 </script>
 
 <template>
